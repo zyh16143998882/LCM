@@ -178,6 +178,15 @@ CUDA_VISIBLE_DEVICES=0 python main.py --model Point_LCM_SEG --ckpts ../ckpts/pre
 ```
 </details>
 
+### 4.3 Object Detection
+
+```python
+cd detection
+
+CUDA_VISIBLE_DEVICES=0,1,2,3 python main.py --dataset_name scannet --checkpoint_dir lcm_mae --model_name 3detr_lcm --loss_giou_weight 1 --loss_no_object_weight 0.25 --nqueries 256 --ngpus 4 --batchsize_per_gpu 8 --enc_dim 384 --pretrain_ckpt ../ckpts/pretrained/lcm_mae.pth
+```
+</details>
+
 
 ## 5. Validate with checkpoints
 For reproducibility, logs and checkpoints of fine-tuned models of Point-MAE (w/ LCM) can be found in the table below.
